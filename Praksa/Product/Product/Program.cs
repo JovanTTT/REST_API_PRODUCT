@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Product;
 using Product.Data;
 using Product.DTO;
+using Product.Extensions;
 using Product.Repository;
 using Product.Service;
 using System;
@@ -26,7 +27,10 @@ builder.Services.AddDbContext<AppDbContext>(Options =>
 
 builder.Services.AddControllers();
 
+
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {

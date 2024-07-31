@@ -61,19 +61,6 @@ namespace Product.Controllers
             return NotFound("Product not found");
         }
 
-        //[HttpDelete]
-
-       // public async Task<ActionResult<List<ProductDTO>>> deleteProduct(int id)
-       // {
-        //    var product = await appDbContext.Products.FirstOrDefaultAsync(x => x.Id == id);
-        //    if (product != null) { 
-        //        appDbContext.Products.Remove(product);
-        //        await appDbContext.SaveChangesAsync();
-        //        return Ok(await appDbContext.Products.ToListAsync());
-         //   }
-       //     return NotFound("Product does not exist!");
-       // }
-
         [HttpPut]
         public async Task<ActionResult<ProductDTO>> UpdateProduct(ProductDTO productDTO)
         {
@@ -103,5 +90,7 @@ namespace Product.Controllers
             }
             return NotFound("Product does not exist!");
         }
+
+        
     }
 }
