@@ -8,6 +8,6 @@ namespace Product.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        public DbSet<ProductDTO> Products { get; set; }
+        public DbSet<ProductModel> Products { get; set; }
     }
 }

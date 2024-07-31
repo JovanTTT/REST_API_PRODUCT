@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jovan\\Desktop\\Praksa\\Product\\Product\\Product.csproj": {}
+    "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product\\Product.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jovan\\Desktop\\Praksa\\Product\\Product\\Product.csproj": {
+    "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product\\Product.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jovan\\Desktop\\Praksa\\Product\\Product\\Product.csproj",
+        "projectUniqueName": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product\\Product.csproj",
         "projectName": "Product",
-        "projectPath": "C:\\Users\\jovan\\Desktop\\Praksa\\Product\\Product\\Product.csproj",
+        "projectPath": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product\\Product.csproj",
         "packagesPath": "C:\\Users\\jovan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jovan\\Desktop\\Praksa\\Product\\Product\\obj\\",
+        "outputPath": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jovan\\AppData\\Roaming\\NuGet\\NuGet.Config",
