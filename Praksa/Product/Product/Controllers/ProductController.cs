@@ -46,19 +46,34 @@ namespace Product.Controllers
         [HttpGet]
         public async Task<ActionResult<List<ProductDTO>>> GetAllProducts()
         {
-            var products = await _productService.GetAllProductsAsync();
-            return Ok(products);
+
+            try
+            {
+                var products = await _productService.GetAllProductsAsync();
+                return Ok(products);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
 
         [HttpGet("{id:int}")]
         public async Task<ActionResult<ProductDTO>> GetProduct(int id)
         {
-            var product = await _productService.GetProductByIdAsync(id);
-            if (product != null)
+            try
             {
-                return Ok(product);
+                var product = await _productService.GetProductByIdAsync(id);
+                if (product != null)
+                {
+                    return Ok(product);
+                }
+                return NotFound("Product not found");
             }
-            return NotFound("Product not found");
+            catch(Exception ex) 
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut]
@@ -82,13 +97,20 @@ namespace Product.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<List<ProductDTO>>> DeleteProduct(int id)
         {
-            var productDeleted = await _productService.DeleteProductAsync(id);
-            if (productDeleted)
+            try
             {
-                var products = await _productService.GetAllProductsAsync();
-                return Ok(products);
+                var productDeleted = await _productService.DeleteProductAsync(id);
+                if (productDeleted)
+                {
+                    var products = await _productService.GetAllProductsAsync();
+                    return Ok(products);
+                }
+                return NotFound("Product does not exist!");
             }
-            return NotFound("Product does not exist!");
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
 
         
