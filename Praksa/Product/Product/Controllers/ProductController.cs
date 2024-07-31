@@ -28,23 +28,6 @@ namespace Product.Controllers
             this.validator = validator;
         }
 
-        // [HttpPost]
-        // public async Task<ActionResult<List<ProductDTO>>> AddProduct(ProductDTO productdto)
-        // {
-        // FluentValidation.Results.ValidationResult result = await validator.ValidateAsync(productdto);
-        //if (!result.IsValid)
-        //  {
-        //   return BadRequest("Does not meet required format!");
-        //  }
-        //if (productdto != null)
-        // {
-        // appDbContext.Products.Add(productdto);
-        // await appDbContext.SaveChangesAsync();
-        //return Ok(await appDbContext.Products.ToListAsync());
-        //}
-        //return BadRequest("Object instance not set");
-        //}
-
         [HttpPost]
         public async Task<ActionResult<List<ProductDTO>>> AddProduct(ProductDTO productDTO)
         {

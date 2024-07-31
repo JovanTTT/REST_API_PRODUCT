@@ -72,5 +72,36 @@ namespace Product.Service
                 Description = pm.Description
             }).ToList();
         }
+
+        public async Task<ProductDTO> UpdateProductAsync(ProductDTO productDTO)
+        {
+            FluentValidation.Results.ValidationResult result = await _validator.ValidateAsync(productDTO);
+            if (!result.IsValid)
+            {
+                throw new FluentValidation.ValidationException("Does not meet required format!");
+            }
+
+            var productModel = await _productRepository.GetProductByIdAsync(productDTO.Id);
+            if (productModel == null)
+            {
+                throw new KeyNotFoundException("Product not found");
+            }
+
+            productModel.Name = productDTO.Name;
+            productModel.Description = productDTO.Description;
+            productModel.Price = productDTO.Price;
+            // map other properties
+
+            var updatedProduct = await _productRepository.UpdateProductAsync(productModel);
+
+            return new ProductDTO
+            {
+                Id = updatedProduct.Id,
+                Name = updatedProduct.Name,
+                Description = updatedProduct.Description,
+                Price = updatedProduct.Price
+                // map other properties
+            };
+        }
     }
 }

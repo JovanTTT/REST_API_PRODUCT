@@ -37,5 +37,12 @@ namespace Product.Repository
             await _context.SaveChangesAsync();
             return await _context.Products.ToListAsync();
         }
+
+        public async Task<ProductModel> UpdateProductAsync(ProductModel productModel)
+        {
+            _context.Products.Update(productModel);
+            await _context.SaveChangesAsync();
+            return productModel;
+        }
     }
 }

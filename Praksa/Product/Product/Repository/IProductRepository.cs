@@ -9,5 +9,7 @@ namespace Product.Repository
         Task<ProductModel> GetProductByIdAsync(int id);
 
         Task<List<ProductModel>> AddProductAsync(ProductModel productModel);
+
+        Task<ProductModel> UpdateProductAsync(ProductModel productModel);
     }
 }
