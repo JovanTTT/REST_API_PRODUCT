@@ -1,0 +1,13 @@
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.DataLayer\obj\Debug\net8.0\Product.DataLayer.csproj.AssemblyReference.cache
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.DataLayer\obj\Debug\net8.0\Product.DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.DataLayer\obj\Debug\net8.0\Product.DataLayer.AssemblyInfoInputs.cache
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.DataLayer\obj\Debug\net8.0\Product.DataLayer.AssemblyInfo.cs
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.DataLayer\obj\Debug\net8.0\Product.DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.DataLayer\obj\Debug\net8.0\Product.DataLayer.sourcelink.json
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.DataLayer\bin\Debug\net8.0\Product.DataLayer.deps.json
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.DataLayer\bin\Debug\net8.0\Product.DataLayer.dll
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.DataLayer\bin\Debug\net8.0\Product.DataLayer.pdb
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.DataLayer\obj\Debug\net8.0\Product.DataLayer.dll
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.DataLayer\obj\Debug\net8.0\refint\Product.DataLayer.dll
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.DataLayer\obj\Debug\net8.0\Product.DataLayer.pdb
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.DataLayer\obj\Debug\net8.0\ref\Product.DataLayer.dll

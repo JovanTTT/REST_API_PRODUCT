@@ -1780,6 +1780,34 @@
             "rid": "win"
           }
         }
+      },
+      "Product.BusinessLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "FluentValidation": "11.9.2",
+          "Product.DataLayer": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Product.BusinessLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Product.BusinessLayer.dll": {}
+        }
+      },
+      "Product.DataLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.7",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.7"
+        },
+        "compile": {
+          "bin/placeholder/Product.DataLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Product.DataLayer.dll": {}
+        }
       }
     }
   },
@@ -4865,6 +4893,16 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Product.BusinessLayer/1.0.0": {
+      "type": "project",
+      "path": "../Product.BusinessLayer/Product.BusinessLayer.csproj",
+      "msbuildProject": "../Product.BusinessLayer/Product.BusinessLayer.csproj"
+    },
+    "Product.DataLayer/1.0.0": {
+      "type": "project",
+      "path": "../Product.DataLayer/Product.DataLayer.csproj",
+      "msbuildProject": "../Product.DataLayer/Product.DataLayer.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4874,6 +4912,8 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.7",
       "Microsoft.EntityFrameworkCore.Sqlite >= 8.0.7",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.7",
+      "Product.BusinessLayer >= 1.0.0",
+      "Product.DataLayer >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
@@ -4904,7 +4944,14 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.BusinessLayer\\Product.BusinessLayer.csproj": {
+              "projectPath": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.BusinessLayer\\Product.BusinessLayer.csproj"
+            },
+            "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Product.DataLayer.csproj": {
+              "projectPath": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Product.DataLayer.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

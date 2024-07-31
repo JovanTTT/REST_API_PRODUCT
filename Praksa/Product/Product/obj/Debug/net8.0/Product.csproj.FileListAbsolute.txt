@@ -306,7 +306,6 @@ C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\obj\Debug\net8.0\Produc
 C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\obj\Debug\net8.0\Product.AssemblyInfoInputs.cache
 C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\obj\Debug\net8.0\Product.AssemblyInfo.cs
 C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\obj\Debug\net8.0\Product.csproj.CoreCompileInputs.cache
-C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\obj\Debug\net8.0\Product.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\obj\Debug\net8.0\Product.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\obj\Debug\net8.0\Product.sourcelink.json
 C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\obj\Debug\net8.0\staticwebassets.build.json
@@ -323,3 +322,7 @@ C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\obj\Debug\net8.0\refint
 C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\obj\Debug\net8.0\Product.pdb
 C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\obj\Debug\net8.0\Product.genruntimeconfig.cache
 C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\obj\Debug\net8.0\ref\Product.dll
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\bin\Debug\net8.0\Product.BusinessLayer.dll
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\bin\Debug\net8.0\Product.DataLayer.dll
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\bin\Debug\net8.0\Product.BusinessLayer.pdb
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\bin\Debug\net8.0\Product.DataLayer.pdb

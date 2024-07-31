@@ -18,4 +18,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Product.BusinessLayer\Product.BusinessLayer.csproj" />
+    <ProjectReference Include="..\Product.DataLayer\Product.DataLayer.csproj" />
+  </ItemGroup>
+
 </Project>

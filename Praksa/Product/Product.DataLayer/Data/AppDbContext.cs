@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Product.DTO;
 using Product.Model;
 
 namespace Product.Data

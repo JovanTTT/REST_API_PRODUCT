@@ -1,0 +1,16 @@
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\obj\Debug\net8.0\Product.BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\obj\Debug\net8.0\Product.BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\obj\Debug\net8.0\Product.BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\obj\Debug\net8.0\Product.BusinessLayer.AssemblyInfo.cs
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\obj\Debug\net8.0\Product.BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\obj\Debug\net8.0\Product.BusinessLayer.sourcelink.json
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\bin\Debug\net8.0\Product.BusinessLayer.deps.json
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\bin\Debug\net8.0\Product.BusinessLayer.dll
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\bin\Debug\net8.0\Product.BusinessLayer.pdb
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\bin\Debug\net8.0\Product.DataLayer.dll
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\bin\Debug\net8.0\Product.DataLayer.pdb
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\obj\Debug\net8.0\Product..909EC53B.Up2Date
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\obj\Debug\net8.0\Product.BusinessLayer.dll
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\obj\Debug\net8.0\refint\Product.BusinessLayer.dll
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\obj\Debug\net8.0\Product.BusinessLayer.pdb
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\obj\Debug\net8.0\ref\Product.BusinessLayer.dll
