@@ -87,10 +87,10 @@ namespace Product.Service
                 throw new KeyNotFoundException("Product not found");
             }
 
+            productModel.Id = productDTO.Id;
             productModel.Name = productDTO.Name;
             productModel.Description = productDTO.Description;
             productModel.Price = productDTO.Price;
-            // map other properties
 
             var updatedProduct = await _productRepository.UpdateProductAsync(productModel);
 
@@ -100,7 +100,6 @@ namespace Product.Service
                 Name = updatedProduct.Name,
                 Description = updatedProduct.Description,
                 Price = updatedProduct.Price
-                // map other properties
             };
         }
     }

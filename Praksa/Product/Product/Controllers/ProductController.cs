@@ -61,25 +61,25 @@ namespace Product.Controllers
             return NotFound("Product not found");
         }
 
-        [HttpPut]
+        //[HttpPut]
 
-        public async Task<ActionResult<ProductDTO>> updateProduct(ProductDTO productdto)
-        {
-            var product = await appDbContext.Products.FirstOrDefaultAsync(x => x.Id == productdto.Id);
-            FluentValidation.Results.ValidationResult result = await validator.ValidateAsync(productdto);
-            if (!result.IsValid) {
-                return BadRequest("Does not meet required format!");
-            }
-            if (product != null)
-            {
-                product!.Name = productdto.Name;
-                product!.Description = productdto.Description;
-                product!.Price = productdto.Price;
-                await appDbContext.SaveChangesAsync();
-                return Ok(product);
-            }
-            return BadRequest("Product not found");
-        }
+       //public async Task<ActionResult<ProductDTO>> updateProduct(ProductDTO productdto)
+        //{
+           // var product = await appDbContext.Products.FirstOrDefaultAsync(x => x.Id == productdto.Id);
+            //FluentValidation.Results.ValidationResult result = await validator.ValidateAsync(productdto);
+            //if (!result.IsValid) {
+             //   return BadRequest("Does not meet required format!");
+          //  }
+           // if (product != null)
+           // {
+            //    product!.Name = productdto.Name;
+            //    product!.Description = productdto.Description;
+             //   product!.Price = productdto.Price;
+             //   await appDbContext.SaveChangesAsync();
+            //    return Ok(product);
+          //  }
+           // return BadRequest("Product not found");
+       // }
 
         [HttpDelete]
 
@@ -92,6 +92,24 @@ namespace Product.Controllers
                 return Ok(await appDbContext.Products.ToListAsync());
             }
             return NotFound("Product does not exist!");
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<ProductDTO>> UpdateProduct(ProductDTO productDTO)
+        {
+            try
+            {
+                var updatedProduct = await _productService.UpdateProductAsync(productDTO);
+                return Ok(updatedProduct);
+            }
+            catch (FluentValidation.ValidationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
     }
 }

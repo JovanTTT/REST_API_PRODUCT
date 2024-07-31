@@ -40,7 +40,16 @@ namespace Product.Repository
 
         public async Task<ProductModel> UpdateProductAsync(ProductModel productModel)
         {
-            _context.Products.Update(productModel);
+            var local = _context.Set<ProductModel>()
+                                .Local
+                                .FirstOrDefault(entry => entry.Id.Equals(productModel.Id));
+
+            if (local != null)
+            {
+                _context.Entry(local).State = EntityState.Detached;
+            }
+
+            _context.Entry(productModel).State = EntityState.Modified;
             await _context.SaveChangesAsync();
             return productModel;
         }
