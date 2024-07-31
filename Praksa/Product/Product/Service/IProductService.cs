@@ -7,5 +7,7 @@ namespace Product.Service
         Task<List<ProductDTO>> GetAllProductsAsync();
 
         Task<ProductDTO> GetProductByIdAsync(int id);
+
+        Task<List<ProductDTO>> AddProductAsync(ProductDTO productDTO);
     }
 }

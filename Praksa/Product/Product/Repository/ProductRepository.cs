@@ -30,5 +30,12 @@ namespace Product.Repository
                 Description = product.Description
             } : null;
         }
+
+        public async Task<List<ProductModel>> AddProductAsync(ProductModel productModel)
+        {
+            _context.Products.Add(productModel);
+            await _context.SaveChangesAsync();
+            return await _context.Products.ToListAsync();
+        }
     }
 }
