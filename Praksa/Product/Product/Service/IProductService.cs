@@ -11,5 +11,7 @@ namespace Product.Service
         Task<List<ProductDTO>> AddProductAsync(ProductDTO productDTO);
 
         Task<ProductDTO> UpdateProductAsync(ProductDTO productDTO);
+
+        Task<bool> DeleteProductAsync(int id);
     }
 }

@@ -102,5 +102,10 @@ namespace Product.Service
                 Price = updatedProduct.Price
             };
         }
+
+        public async Task<bool> DeleteProductAsync(int id)
+        {
+            return await _productRepository.DeleteProductAsync(id);
+        }
     }
 }

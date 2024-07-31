@@ -11,5 +11,7 @@ namespace Product.Repository
         Task<List<ProductModel>> AddProductAsync(ProductModel productModel);
 
         Task<ProductModel> UpdateProductAsync(ProductModel productModel);
+
+        Task<bool> DeleteProductAsync(int id);
     }
 }

@@ -61,38 +61,18 @@ namespace Product.Controllers
             return NotFound("Product not found");
         }
 
-        //[HttpPut]
+        //[HttpDelete]
 
-       //public async Task<ActionResult<ProductDTO>> updateProduct(ProductDTO productdto)
-        //{
-           // var product = await appDbContext.Products.FirstOrDefaultAsync(x => x.Id == productdto.Id);
-            //FluentValidation.Results.ValidationResult result = await validator.ValidateAsync(productdto);
-            //if (!result.IsValid) {
-             //   return BadRequest("Does not meet required format!");
-          //  }
-           // if (product != null)
-           // {
-            //    product!.Name = productdto.Name;
-            //    product!.Description = productdto.Description;
-             //   product!.Price = productdto.Price;
-             //   await appDbContext.SaveChangesAsync();
-            //    return Ok(product);
-          //  }
-           // return BadRequest("Product not found");
+       // public async Task<ActionResult<List<ProductDTO>>> deleteProduct(int id)
+       // {
+        //    var product = await appDbContext.Products.FirstOrDefaultAsync(x => x.Id == id);
+        //    if (product != null) { 
+        //        appDbContext.Products.Remove(product);
+        //        await appDbContext.SaveChangesAsync();
+        //        return Ok(await appDbContext.Products.ToListAsync());
+         //   }
+       //     return NotFound("Product does not exist!");
        // }
-
-        [HttpDelete]
-
-        public async Task<ActionResult<List<ProductDTO>>> deleteProduct(int id)
-        {
-            var product = await appDbContext.Products.FirstOrDefaultAsync(x => x.Id == id);
-            if (product != null) { 
-                appDbContext.Products.Remove(product);
-                await appDbContext.SaveChangesAsync();
-                return Ok(await appDbContext.Products.ToListAsync());
-            }
-            return NotFound("Product does not exist!");
-        }
 
         [HttpPut]
         public async Task<ActionResult<ProductDTO>> UpdateProduct(ProductDTO productDTO)
@@ -110,6 +90,18 @@ namespace Product.Controllers
             {
                 return NotFound(ex.Message);
             }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<List<ProductDTO>>> DeleteProduct(int id)
+        {
+            var productDeleted = await _productService.DeleteProductAsync(id);
+            if (productDeleted)
+            {
+                var products = await _productService.GetAllProductsAsync();
+                return Ok(products);
+            }
+            return NotFound("Product does not exist!");
         }
     }
 }
