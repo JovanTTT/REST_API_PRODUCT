@@ -1,6 +1,7 @@
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Product;
+using Product.BusinessLayer.Service;
 using Product.Data;
 using Product.DTO;
 using Product.Extensions;
@@ -19,6 +20,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IValidator<ProductDTO>, PersonValidator>();
 builder.Services.AddDbContext<AppDbContext>(Options =>
 {

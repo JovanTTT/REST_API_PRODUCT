@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Product.BusinessLayer.DTO;
+using Product.BusinessLayer.Service;
 using Product.DataLayer.Model;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -13,35 +14,42 @@ namespace Product.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        public static User user = new User();
+        private readonly IUserService _userService;
         private readonly IConfiguration _configuration;
 
-        public AuthController(IConfiguration configuration)
+        public AuthController(IUserService userService, IConfiguration configuration)
         {
+            _userService = userService;
             _configuration = configuration;
         }
 
         [HttpPost("register")]
-        public ActionResult<User> Register(UsetDTO request)
+        public async Task<ActionResult<User>> Register(UsetDTO request)
         {
-            string passwordHash
-                = BCrypt.Net.BCrypt.HashPassword(request.Password);
+            string passwordHash = BCrypt.Net.BCrypt.HashPassword(request.Password);
 
-            user.Username = request.Username;
-            user.PasswordHash = passwordHash;
+            var user = new User
+            {
+                Username = request.Username,
+                PasswordHash = passwordHash
+            };
 
-            return Ok(user);
+            var createdUser = await _userService.RegisterAsync(user);
+
+            return Ok(createdUser);
         }
 
         [HttpPost("login")]
-        public ActionResult<User> Login(UsetDTO request)
+        public async Task<ActionResult<string>> Login(UsetDTO request)
         {
-            if(user.Username != request.Username)
+            var user = await _userService.GetUserByUsernameAsync(request.Username);
+
+            if (user == null)
             {
                 return BadRequest("User not found!");
             }
 
-            if(!BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
+            if (!BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
             {
                 return BadRequest("Wrong password!");
             }
@@ -57,7 +65,7 @@ namespace Product.Controllers
             {
                 new Claim(ClaimTypes.Name, user.Username)
             };
-            
+
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
                 _configuration.GetSection("AppSettings:Token").Value!));
 
@@ -65,10 +73,10 @@ namespace Product.Controllers
 
             var token = new JwtSecurityToken(
                 claims: claims,
-                expires: DateTime.Now.AddDays(1), 
+                expires: DateTime.Now.AddDays(1),
                 signingCredentials: creds
             );
-        
+
             var jwt = new JwtSecurityTokenHandler().WriteToken(token);
 
             return jwt;
