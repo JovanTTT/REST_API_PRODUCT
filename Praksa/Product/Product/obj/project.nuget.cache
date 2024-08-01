@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "vp2eTE+O63w=",
+  "dgSpecHash": "RQ6INrRoWuI=",
   "success": true,
   "projectFilePath": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product\\Product.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jovan\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\jovan\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\jovan\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\jovan\\.nuget\\packages\\fluentvalidation\\11.9.2\\fluentvalidation.11.9.2.nupkg.sha512",
     "C:\\Users\\jovan\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\jovan\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
