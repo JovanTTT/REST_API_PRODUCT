@@ -26,12 +26,20 @@ namespace Product.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<User>> Register(UsetDTO request)
         {
+            // Validate role if needed
+            var validRoles = new List<string> { "Admin", "User" }; // Define valid roles
+            if (!validRoles.Contains(request.Role))
+            {
+                return BadRequest("Invalid role specified!");
+            }
+
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(request.Password);
 
             var user = new User
             {
                 Username = request.Username,
-                PasswordHash = passwordHash
+                PasswordHash = passwordHash,
+                Role = request.Role // Assign the provided role
             };
 
             var createdUser = await _userService.RegisterAsync(user);
@@ -62,9 +70,10 @@ namespace Product.Controllers
         private string CreateToken(User user)
         {
             List<Claim> claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, user.Username)
-            };
+    {
+        new Claim(ClaimTypes.Name, user.Username),
+        new Claim(ClaimTypes.Role, user.Role) // Include the role in claims
+    };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
                 _configuration.GetSection("AppSettings:Token").Value!));

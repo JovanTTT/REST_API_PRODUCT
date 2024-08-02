@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +30,7 @@ namespace Product.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<List<ProductDTO>>> AddProduct(ProductDTO productDTO)
         {
             try
@@ -44,6 +46,7 @@ namespace Product.Controllers
 
 
         [HttpGet]
+        [Authorize(Roles = "Admin, User")]
         public async Task<ActionResult<List<ProductDTO>>> GetAllProducts()
         {
 
@@ -59,6 +62,7 @@ namespace Product.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [Authorize(Roles = "Admin, User")]
         public async Task<ActionResult<ProductDTO>> GetProduct(int id)
         {
             try
@@ -77,6 +81,7 @@ namespace Product.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ProductDTO>> UpdateProduct(ProductDTO productDTO)
         {
             try
@@ -95,6 +100,7 @@ namespace Product.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<List<ProductDTO>>> DeleteProduct(int id)
         {
             try
@@ -112,7 +118,5 @@ namespace Product.Controllers
                 return NotFound(ex.Message);
             }
         }
-
-        
     }
 }

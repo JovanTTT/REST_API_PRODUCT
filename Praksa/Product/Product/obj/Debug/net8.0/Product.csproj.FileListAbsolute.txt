@@ -328,3 +328,4 @@ C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\bin\Debug\net8.0\Produc
 C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\bin\Debug\net8.0\Product.DataLayer.pdb
 C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\bin\Debug\net8.0\BCrypt.Net-Next.dll
 C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\obj\Debug\net8.0\Product.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
