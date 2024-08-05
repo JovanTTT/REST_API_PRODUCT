@@ -13,7 +13,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Product.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize]
+    //[Authorize]
     [ApiController]
     public class ProductController : ControllerBase
     {
@@ -31,6 +31,7 @@ namespace Product.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<List<ProductDTO>>> AddProduct(ProductDTO productDTO)
         {
 
@@ -47,6 +48,7 @@ namespace Product.Controllers
 
 
         [HttpGet]
+        [Authorize(Roles = "Admin,User")]
         public async Task<ActionResult<List<ProductDTO>>> GetAllProducts()
         {
             try
@@ -64,6 +66,7 @@ namespace Product.Controllers
 
 
         [HttpPut]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ProductDTO>> UpdateProduct(ProductDTO productDTO)
         {
             try
@@ -82,6 +85,7 @@ namespace Product.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<List<ProductDTO>>> DeleteProduct(int id)
         {
 
@@ -103,6 +107,7 @@ namespace Product.Controllers
 
         [Authorize]
         [HttpGet("{id:int}")]
+        [Authorize(Roles = "Admin,User")]
         public async Task<ActionResult<ProductDTO>> GetProduct(int id)
         {
 
