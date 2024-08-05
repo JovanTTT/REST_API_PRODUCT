@@ -15,8 +15,6 @@ namespace Product.BusinessLayer.Service
     {
         private readonly AppDbContext _context;
 
-        private readonly IUsersRepository usersRepository;
-
         public UserService(AppDbContext context)
         {
             _context = context;
@@ -32,14 +30,6 @@ namespace Product.BusinessLayer.Service
         public async Task<User> GetUserByUsernameAsync(string username)
         {
             return await _context.Users.SingleOrDefaultAsync(u => u.Username == username);
-        }
-
-        public async Task<UsetDTO> AddUser(RegisterDTO newUser)
-        {
-                string passHash = BCrypt.Net.BCrypt.HashPassword(newUser.Password);
-                User user = new User(0, newUser.Name, newUser.Email, passHash, newUser.Role);
-                await usersRepository.AddUserAsync(user);
-                return new UserDTO(user.Id, user.Name, user.Email, user.Role);
         }
 
     }

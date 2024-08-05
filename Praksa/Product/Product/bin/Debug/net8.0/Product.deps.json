@@ -1123,6 +1123,7 @@
       },
       "Product.BusinessLayer/1.0.0": {
         "dependencies": {
+          "BCrypt.Net-Next": "4.0.3",
           "FluentValidation": "11.9.2",
           "Product.DataLayer": "1.0.0"
         },

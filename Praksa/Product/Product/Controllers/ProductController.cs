@@ -13,6 +13,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Product.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class ProductController : ControllerBase
     {
@@ -30,13 +31,13 @@ namespace Product.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<ActionResult<List<ProductDTO>>> AddProduct(ProductDTO productDTO)
         {
+
             try
             {
-                var products = await _productService.AddProductAsync(productDTO);
-                return Ok(products);
+                await _productService.AddProductAsync(productDTO);
+                return Ok(productDTO);
             }
             catch (FluentValidation.ValidationException ex)
             {
@@ -46,10 +47,8 @@ namespace Product.Controllers
 
 
         [HttpGet]
-        [Authorize(Roles = "Admin, User")]
         public async Task<ActionResult<List<ProductDTO>>> GetAllProducts()
         {
-
             try
             {
                 var products = await _productService.GetAllProductsAsync();
@@ -59,35 +58,18 @@ namespace Product.Controllers
             {
                 return NotFound(ex.Message);
             }
+
         }
 
-        [HttpGet("{id:int}")]
-        [Authorize(Roles = "Admin, User")]
-        public async Task<ActionResult<ProductDTO>> GetProduct(int id)
-        {
-            try
-            {
-                var product = await _productService.GetProductByIdAsync(id);
-                if (product != null)
-                {
-                    return Ok(product);
-                }
-                return NotFound("Product not found");
-            }
-            catch(Exception ex) 
-            {
-                return NotFound(ex.Message);
-            }
-        }
+
 
         [HttpPut]
-        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ProductDTO>> UpdateProduct(ProductDTO productDTO)
         {
             try
             {
-                var updatedProduct = await _productService.UpdateProductAsync(productDTO);
-                return Ok(updatedProduct);
+                await _productService.UpdateProductAsync(productDTO);
+                return Ok();
             }
             catch (FluentValidation.ValidationException ex)
             {
@@ -100,23 +82,45 @@ namespace Product.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<List<ProductDTO>>> DeleteProduct(int id)
         {
+
             try
             {
-                var productDeleted = await _productService.DeleteProductAsync(id);
-                if (productDeleted)
-                {
-                    var products = await _productService.GetAllProductsAsync();
-                    return Ok(products);
-                }
-                return NotFound("Product does not exist!");
+                await _productService.DeleteProductAsync(id);
+                var products = await _productService.GetAllProductsAsync();
+                return Ok(products);
+
             }
             catch (Exception ex)
             {
-                return NotFound(ex.Message);
+                {
+                    return NotFound(ex.Message);
+                }
+
             }
+        }
+
+        [Authorize]
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<ProductDTO>> GetProduct(int id)
+        {
+
+            try
+            {
+                var product = await _productService.GetProductByIdAsync(id)
+;
+                if (product != null)
+                {
+                    return Ok(product);
+                }
+                return NotFound("Product not found");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
     }
 }
