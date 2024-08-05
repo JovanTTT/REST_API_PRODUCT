@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "o26StPsfKqg=",
+  "dgSpecHash": "1hn+tsXESDw=",
   "success": true,
   "projectFilePath": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.BusinessLayer\\Product.BusinessLayer.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\jovan\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\jovan\\.nuget\\packages\\fluentvalidation\\11.9.2\\fluentvalidation.11.9.2.nupkg.sha512",
     "C:\\Users\\jovan\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.7\\microsoft.entityframeworkcore.8.0.7.nupkg.sha512",
     "C:\\Users\\jovan\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.7\\microsoft.entityframeworkcore.abstractions.8.0.7.nupkg.sha512",

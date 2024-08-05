@@ -30,7 +30,7 @@ namespace Product.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public async Task<ActionResult<List<ProductDTO>>> AddProduct(ProductDTO productDTO)
         {
             try

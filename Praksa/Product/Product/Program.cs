@@ -2,6 +2,7 @@ using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Product;
 using Product.BusinessLayer.Service;
 using Product.Data;
@@ -9,6 +10,7 @@ using Product.DTO;
 using Product.Extensions;
 using Product.Repository;
 using Product.Service;
+using Swashbuckle.AspNetCore.Filters;
 using System;
 using System.Text;
 
@@ -32,25 +34,42 @@ builder.Services.AddDbContext<AppDbContext>(Options =>
 
 builder.Services.AddControllers();
 
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "TestWebApi", Version = "v1" });
+
+    var securityScheme = new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Description = "Enter your JWT token in this field",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+    };
+
+    options.AddSecurityDefinition("oauth2", securityScheme);
+
+    options.OperationFilter<SecurityRequirementsOperationFilter>();
+});
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
         {
-            ValidateIssuer = true,
-            ValidateAudience = true,
+            ValidateIssuer = false,
+            ValidateAudience = false,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Audience"],
+            //ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            //ValidAudience = builder.Configuration["Jwt:Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
         };
     });
 
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
-    options.AddPolicy("RequireUserRole", policy => policy.RequireRole("User"));
+    //options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
+    //options.AddPolicy("RequireUserRole", policy => policy.RequireRole("User"));
 });
 
 
@@ -86,9 +105,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
-
 app.UseAuthentication();
+
+app.UseAuthorization();
 
 app.MapControllers();
 

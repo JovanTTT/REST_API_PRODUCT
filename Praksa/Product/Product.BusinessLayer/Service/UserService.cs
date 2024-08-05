@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BCrypt.Net;
+using Microsoft.EntityFrameworkCore;
+using Product.BusinessLayer.DTO;
 using Product.Data;
 using Product.DataLayer.Model;
 using System;
@@ -12,6 +14,8 @@ namespace Product.BusinessLayer.Service
     public class UserService : IUserService
     {
         private readonly AppDbContext _context;
+
+        private readonly IUsersRepository usersRepository;
 
         public UserService(AppDbContext context)
         {
@@ -29,5 +33,14 @@ namespace Product.BusinessLayer.Service
         {
             return await _context.Users.SingleOrDefaultAsync(u => u.Username == username);
         }
+
+        public async Task<UsetDTO> AddUser(RegisterDTO newUser)
+        {
+                string passHash = BCrypt.Net.BCrypt.HashPassword(newUser.Password);
+                User user = new User(0, newUser.Name, newUser.Email, passHash, newUser.Role);
+                await usersRepository.AddUserAsync(user);
+                return new UserDTO(user.Id, user.Name, user.Email, user.Role);
+        }
+
     }
 }

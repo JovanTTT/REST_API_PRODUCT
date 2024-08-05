@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Product.BusinessLayer.DTO;
@@ -24,28 +25,23 @@ namespace Product.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<User>> Register(UsetDTO request)
+        public async Task<ActionResult<UserDTO>> Register(RegisterDTO registerDTO)
         {
-            // Validate role if needed
-            var validRoles = new List<string> { "Admin", "User" }; // Define valid roles
-            if (!validRoles.Contains(request.Role))
+            try
             {
-                return BadRequest("Invalid role specified!");
+                FluentValidation.Results.ValidationResult result = await validator.ValidateAsync(registerDTO);
+                if (!result.IsValid)
+                {
+                    return BadRequest("Data isn't valid");
+                }
+                return Ok(await usersService.AddUser(registerDTO));
             }
-
-            string passwordHash = BCrypt.Net.BCrypt.HashPassword(request.Password);
-
-            var user = new User
+            catch
             {
-                Username = request.Username,
-                PasswordHash = passwordHash,
-                Role = request.Role // Assign the provided role
-            };
-
-            var createdUser = await _userService.RegisterAsync(user);
-
-            return Ok(createdUser);
+                return BadRequest("Failed to register user");
+            }
         }
+
 
         [HttpPost("login")]
         public async Task<ActionResult<string>> Login(UsetDTO request)
@@ -72,7 +68,7 @@ namespace Product.Controllers
             List<Claim> claims = new List<Claim>
     {
         new Claim(ClaimTypes.Name, user.Username),
-        new Claim(ClaimTypes.Role, user.Role) // Include the role in claims
+        new Claim(ClaimTypes.Role, user.Role) // Add role to claims
     };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(

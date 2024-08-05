@@ -3,20 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|c:\\users\\jovan\\desktop\\int\\intern\\praksa\\product\\product.datalayer\\migrations\\20240801101122_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|solutionrelative:product.datalayer\\migrations\\20240801101122_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|c:\\users\\jovan\\desktop\\int\\intern\\praksa\\product\\product.datalayer\\repository\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|solutionrelative:product.datalayer\\repository\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|c:\\users\\jovan\\desktop\\int\\intern\\praksa\\product\\product.datalayer\\migrations\\20240729110240_initials.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|solutionrelative:product.datalayer\\migrations\\20240729110240_initials.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|c:\\users\\jovan\\desktop\\int\\intern\\praksa\\product\\product.datalayer\\repository\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|solutionrelative:product.datalayer\\repository\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A772E4D-3105-4E26-8879-469D5E9F7B9B}|Product\\Product.csproj|c:\\users\\jovan\\desktop\\int\\intern\\praksa\\product\\product\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A772E4D-3105-4E26-8879-469D5E9F7B9B}|Product\\Product.csproj|solutionrelative:product\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7B75140-5A8B-4917-BDFD-CDCCAC85C1B6}|Product.BusinessLayer\\Product.BusinessLayer.csproj|c:\\users\\jovan\\desktop\\int\\intern\\praksa\\product\\product.businesslayer\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7B75140-5A8B-4917-BDFD-CDCCAC85C1B6}|Product.BusinessLayer\\Product.BusinessLayer.csproj|solutionrelative:product.businesslayer\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A772E4D-3105-4E26-8879-469D5E9F7B9B}|Product\\Product.csproj|c:\\users\\jovan\\desktop\\int\\intern\\praksa\\product\\product\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A772E4D-3105-4E26-8879-469D5E9F7B9B}|Product\\Product.csproj|solutionrelative:product\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A772E4D-3105-4E26-8879-469D5E9F7B9B}|Product\\Product.csproj|c:\\users\\jovan\\desktop\\int\\intern\\praksa\\product\\product\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5A772E4D-3105-4E26-8879-469D5E9F7B9B}|Product\\Product.csproj|solutionrelative:product\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5A772E4D-3105-4E26-8879-469D5E9F7B9B}|Product\\Product.csproj|c:\\users\\jovan\\desktop\\int\\intern\\praksa\\product\\product\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5A772E4D-3105-4E26-8879-469D5E9F7B9B}|Product\\Product.csproj|solutionrelative:product\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A772E4D-3105-4E26-8879-469D5E9F7B9B}|Product\\Product.csproj|c:\\users\\jovan\\desktop\\int\\intern\\praksa\\product\\product\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A772E4D-3105-4E26-8879-469D5E9F7B9B}|Product\\Product.csproj|solutionrelative:product\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,56 +38,90 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20240801101122_InitialCreate.cs",
-              "DocumentMoniker": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Migrations\\20240801101122_InitialCreate.cs",
-              "RelativeDocumentMoniker": "Product.DataLayer\\Migrations\\20240801101122_InitialCreate.cs",
-              "ToolTip": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Migrations\\20240801101122_InitialCreate.cs",
-              "RelativeToolTip": "Product.DataLayer\\Migrations\\20240801101122_InitialCreate.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABQAAAAeAAAA",
+              "DocumentIndex": 1,
+              "Title": "IProductRepository.cs",
+              "DocumentMoniker": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Repository\\IProductRepository.cs",
+              "RelativeDocumentMoniker": "Product.DataLayer\\Repository\\IProductRepository.cs",
+              "ToolTip": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Repository\\IProductRepository.cs",
+              "RelativeToolTip": "Product.DataLayer\\Repository\\IProductRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T08:56:03.137Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-05T06:53:33.579Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "20240729110240_Initials.cs",
-              "DocumentMoniker": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Migrations\\20240729110240_Initials.cs",
-              "RelativeDocumentMoniker": "Product.DataLayer\\Migrations\\20240729110240_Initials.cs",
-              "ToolTip": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Migrations\\20240729110240_Initials.cs",
-              "RelativeToolTip": "Product.DataLayer\\Migrations\\20240729110240_Initials.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Repository\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "Product.DataLayer\\Repository\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Repository\\IUserRepository.cs",
+              "RelativeToolTip": "Product.DataLayer\\Repository\\IUserRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T08:55:57.892Z",
+              "WhenOpened": "2024-08-05T06:53:21.275Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.BusinessLayer\\Service\\UserService.cs",
+              "RelativeDocumentMoniker": "Product.BusinessLayer\\Service\\UserService.cs",
+              "ToolTip": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.BusinessLayer\\Service\\UserService.cs",
+              "RelativeToolTip": "Product.BusinessLayer\\Service\\UserService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-02T10:53:17.742Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product\\appsettings.json",
+              "RelativeDocumentMoniker": "Product\\appsettings.json",
+              "ToolTip": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product\\appsettings.json",
+              "RelativeToolTip": "Product\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-02T10:27:20.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "Product\\Controllers\\ProductController.cs",
               "ToolTip": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product\\Controllers\\ProductController.cs",
               "RelativeToolTip": "Product\\Controllers\\ProductController.cs",
-              "ViewState": "AQIAAGQAAAAAAAAAAAAowHcAAAAJAAAA",
+              "ViewState": "AQIAABcAAAAAAAAAAAAAwCAAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T08:33:26.262Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-02T10:22:58.569Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Product\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Product\\Controllers\\AuthController.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAAwCYAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-02T09:16:07.596Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product\\Program.cs",
               "RelativeDocumentMoniker": "Product\\Program.cs",
               "ToolTip": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product\\Program.cs",
               "RelativeToolTip": "Product\\Program.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAUwCUAAAAIAAAA",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAkwEsAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-01T10:13:30.617Z"
             }
