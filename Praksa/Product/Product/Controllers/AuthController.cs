@@ -58,7 +58,7 @@ namespace Product.Controllers
 
 
         [HttpPost("login")]
-        public async Task<ActionResult<string>> Login(UsetDTO request)
+        public async Task<ActionResult<string>> Login(LoginDTO request)
         {
             //var user = await _userService.GetUserByUsernameAsync(request.Username);
             var user = await _context.Users.SingleOrDefaultAsync(u => u.Username == request.Username);
