@@ -332,3 +332,8 @@ C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\bin\Debug\net8.0\Micros
 C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\bin\Debug\net8.0\Scrutor.dll
 C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.dll
 C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\bin\Debug\net8.0\Castle.Core.dll
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\bin\Debug\net8.0\Moq.dll
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\bin\Debug\net8.0\xunit.abstractions.dll
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\bin\Debug\net8.0\xunit.assert.dll
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product\bin\Debug\net8.0\xunit.core.dll
