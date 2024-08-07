@@ -14,3 +14,8 @@ C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\obj\Debug
 C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\obj\Debug\net8.0\refint\Product.BusinessLayer.dll
 C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\obj\Debug\net8.0\Product.BusinessLayer.pdb
 C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\obj\Debug\net8.0\ref\Product.BusinessLayer.dll
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\bin\Debug\net8.0\xunit.runner.visualstudio.testadapter.dll
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\bin\Debug\net8.0\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\bin\Debug\net8.0\xunit.runner.utility.netcoreapp10.dll
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\bin\Debug\net8.0\Product.BusinessLayer.runtimeconfig.json
+C:\Users\jovan\Desktop\Int\Intern\Praksa\Product\Product.BusinessLayer\obj\Debug\net8.0\Product.BusinessLayer.genruntimeconfig.cache

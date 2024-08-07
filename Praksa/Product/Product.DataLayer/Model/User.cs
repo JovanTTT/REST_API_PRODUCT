@@ -13,5 +13,7 @@ namespace Product.DataLayer.Model
         public string PasswordHash { get; set; } = string.Empty;
 
         public string Role { get; set; } = string.Empty;
+
+        public ICollection<UserProduct> UserProducts { get; set; } = new List<UserProduct>();
     }
 }

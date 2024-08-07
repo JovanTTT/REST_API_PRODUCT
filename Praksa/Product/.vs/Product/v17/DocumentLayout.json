@@ -3,6 +3,34 @@
   "WorkspaceRootPath": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|c:\\users\\jovan\\desktop\\int\\intern\\praksa\\product\\product.datalayer\\migrations\\20240806111149_createmanytomanyrelationship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|solutionrelative:product.datalayer\\migrations\\20240806111149_createmanytomanyrelationship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|c:\\users\\jovan\\desktop\\int\\intern\\praksa\\product\\product.datalayer\\migrations\\20240801101122_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|solutionrelative:product.datalayer\\migrations\\20240801101122_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|c:\\users\\jovan\\desktop\\int\\intern\\praksa\\product\\product.datalayer\\migrations\\20240729110240_initials.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|solutionrelative:product.datalayer\\migrations\\20240729110240_initials.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|c:\\users\\jovan\\desktop\\int\\intern\\praksa\\product\\product.datalayer\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|solutionrelative:product.datalayer\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|c:\\users\\jovan\\desktop\\int\\intern\\praksa\\product\\product.datalayer\\model\\userproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|solutionrelative:product.datalayer\\model\\userproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|c:\\users\\jovan\\desktop\\int\\intern\\praksa\\product\\product.datalayer\\model\\productmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|solutionrelative:product.datalayer\\model\\productmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|c:\\users\\jovan\\desktop\\int\\intern\\praksa\\product\\product.datalayer\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C919B8E4-2761-47D3-AF39-67C09FD6AE39}|Product.DataLayer\\Product.DataLayer.csproj|solutionrelative:product.datalayer\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A7B75140-5A8B-4917-BDFD-CDCCAC85C1B6}|Product.BusinessLayer\\Product.BusinessLayer.csproj|c:\\users\\jovan\\desktop\\int\\intern\\praksa\\product\\product.businesslayer\\userservicetest\\userservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7B75140-5A8B-4917-BDFD-CDCCAC85C1B6}|Product.BusinessLayer\\Product.BusinessLayer.csproj|solutionrelative:product.businesslayer\\userservicetest\\userservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,6 +51,95 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "20240806111149_CreateManyToManyRelationship.cs",
+              "DocumentMoniker": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Migrations\\20240806111149_CreateManyToManyRelationship.cs",
+              "RelativeDocumentMoniker": "Product.DataLayer\\Migrations\\20240806111149_CreateManyToManyRelationship.cs",
+              "ToolTip": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Migrations\\20240806111149_CreateManyToManyRelationship.cs",
+              "RelativeToolTip": "Product.DataLayer\\Migrations\\20240806111149_CreateManyToManyRelationship.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T07:19:41.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20240801101122_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Migrations\\20240801101122_InitialCreate.cs",
+              "RelativeDocumentMoniker": "Product.DataLayer\\Migrations\\20240801101122_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Migrations\\20240801101122_InitialCreate.cs",
+              "RelativeToolTip": "Product.DataLayer\\Migrations\\20240801101122_InitialCreate.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAgwBwAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T07:19:32.155Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20240729110240_Initials.cs",
+              "DocumentMoniker": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Migrations\\20240729110240_Initials.cs",
+              "RelativeDocumentMoniker": "Product.DataLayer\\Migrations\\20240729110240_Initials.cs",
+              "ToolTip": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Migrations\\20240729110240_Initials.cs",
+              "RelativeToolTip": "Product.DataLayer\\Migrations\\20240729110240_Initials.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAgwCEAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T07:19:28.387Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Product.DataLayer\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Product.DataLayer\\Data\\AppDbContext.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAgwCAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T11:10:32.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProductModel.cs",
+              "DocumentMoniker": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Model\\ProductModel.cs",
+              "RelativeDocumentMoniker": "Product.DataLayer\\Model\\ProductModel.cs",
+              "ToolTip": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Model\\ProductModel.cs",
+              "RelativeToolTip": "Product.DataLayer\\Model\\ProductModel.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAxwA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T11:09:59.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Model\\User.cs",
+              "RelativeDocumentMoniker": "Product.DataLayer\\Model\\User.cs",
+              "ToolTip": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Model\\User.cs",
+              "RelativeToolTip": "Product.DataLayer\\Model\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T11:09:52.841Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserProduct.cs",
+              "DocumentMoniker": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Model\\UserProduct.cs",
+              "RelativeDocumentMoniker": "Product.DataLayer\\Model\\UserProduct.cs",
+              "ToolTip": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.DataLayer\\Model\\UserProduct.cs",
+              "RelativeToolTip": "Product.DataLayer\\Model\\UserProduct.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-06T11:09:24.452Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "UserServiceTest.cs",
               "DocumentMoniker": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.BusinessLayer\\UserServiceTest\\UserServiceTest.cs",
               "RelativeDocumentMoniker": "Product.BusinessLayer\\UserServiceTest\\UserServiceTest.cs",
@@ -30,12 +147,11 @@
               "RelativeToolTip": "Product.BusinessLayer\\UserServiceTest\\UserServiceTest.cs",
               "ViewState": "AQIAACIAAAAAAAAAAAAQwCwAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-06T10:21:01.117Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-06T10:21:01.117Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "ServiceTest.cs",
               "DocumentMoniker": "C:\\Users\\jovan\\Desktop\\Int\\Intern\\Praksa\\Product\\Product.BusinessLayer\\ServiceTest.cs",
               "RelativeDocumentMoniker": "Product.BusinessLayer\\ServiceTest.cs",
