@@ -11,5 +11,7 @@ namespace Product.BusinessLayer.Service
     {
         Task<User> RegisterAsync(User user);
         Task<User> GetUserByUsernameAsync(string username);
+
+        Task<string> BuyProductAsync(int userId, int productId);
     }
 }

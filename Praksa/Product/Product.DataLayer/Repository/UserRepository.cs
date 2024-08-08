@@ -67,5 +67,22 @@ namespace Product.DataLayer.Repository
                 throw new DbUpdateException();
             }
         }
+
+        public async Task<bool> ProductExistsAsync(int productId)
+        {
+            return await appDbContext.Products.AnyAsync(p => p.Id == productId);
+        }
+
+        public async Task<bool> UserOwnsProductAsync(int userId, int productId)
+        {
+            return await appDbContext.UserProducts
+                .AnyAsync(up => up.UserId == userId && up.ProductId == productId);
+        }
+
+        public async Task AddUserProductAsync(UserProduct userProduct)
+        {
+            appDbContext.UserProducts.Add(userProduct);
+            await appDbContext.SaveChangesAsync();
+        }
     }
 }

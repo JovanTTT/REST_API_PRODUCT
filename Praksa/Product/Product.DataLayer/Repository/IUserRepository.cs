@@ -14,5 +14,9 @@ namespace Product.DataLayer.Repository
         Task<User> GetUserByIdAsync(int id);
 
          Task<User> AddUserAsync(User newUser);
+
+        Task<bool> ProductExistsAsync(int productId);
+        Task<bool> UserOwnsProductAsync(int userId, int productId);
+        Task AddUserProductAsync(UserProduct userProduct);
     }
 }

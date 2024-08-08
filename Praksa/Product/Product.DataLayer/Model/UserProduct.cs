@@ -10,9 +10,9 @@ namespace Product.DataLayer.Model
     public class UserProduct
     {
         public int UserId { get; set; }
-        public User User { get; set; } = new User();
+        public User User { get; set; }
 
         public int ProductId { get; set; }
-        public ProductModel Product { get; set; } = new ProductModel();
+        public ProductModel Product { get; set; }
     }
 }

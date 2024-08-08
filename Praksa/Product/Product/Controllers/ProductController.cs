@@ -3,12 +3,14 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Product.BusinessLayer.Service;
 using Product.Data;
 using Product.DTO;
 using Product.Model;
 using Product.Service;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
 
 namespace Product.Controllers
 {
@@ -20,6 +22,8 @@ namespace Product.Controllers
         private readonly AppDbContext appDbContext;
 
         private readonly IProductService _productService;
+
+        private readonly IUserService _userService;
 
         private readonly IValidator<ProductDTO> validator;
 
@@ -126,6 +130,42 @@ namespace Product.Controllers
                 return BadRequest(ex.Message);
             }
 
+        }
+
+        private int? GetCurrentUserId()
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (int.TryParse(userIdClaim, out var userId))
+            {
+                return userId;
+            }
+
+            return null;
+        }
+
+        [HttpPost("buy")]
+        public async Task<IActionResult> BuyProduct([FromQuery] int productId)
+        {
+            var userId = GetCurrentUserId();
+
+            if (userId == null)
+            {
+                return Unauthorized("User not authenticated.");
+            }
+
+            var result = await _userService.BuyProductAsync(userId.Value, productId);
+
+            if (result == "Product not found.")
+            {
+                return NotFound(result);
+            }
+            if (result == "User already owns this product.")
+            {
+                return BadRequest(result);
+            }
+
+            return Ok(result);
         }
     }
 }

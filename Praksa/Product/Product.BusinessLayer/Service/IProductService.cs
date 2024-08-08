@@ -13,5 +13,6 @@ namespace Product.Service
         Task<ProductDTO> UpdateProductAsync(ProductDTO productDTO);
 
         Task<bool> DeleteProductAsync(int id);
+
     }
 }
