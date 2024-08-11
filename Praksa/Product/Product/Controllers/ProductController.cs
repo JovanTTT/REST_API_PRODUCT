@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Product.BusinessLayer.DTO;
 using Product.BusinessLayer.Service;
 using Product.Data;
 using Product.DTO;
@@ -19,153 +20,198 @@ namespace Product.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly AppDbContext appDbContext;
-
-        private readonly IProductService _productService;
-
-        private readonly IUserService _userService;
-
+        private readonly IProductService productsService;
         private readonly IValidator<ProductDTO> validator;
-
-        public ProductController(AppDbContext appDbContext, IProductService productService, IValidator<ProductDTO> validator)
+        public ProductController(IProductService productsService, IValidator<ProductDTO> validator)
         {
-            this.appDbContext = appDbContext;
-            _productService = productService;
+            this.productsService = productsService;
             this.validator = validator;
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
-        public async Task<ActionResult<List<ProductDTO>>> AddProduct(ProductDTO productDTO)
+        public async Task<ActionResult<ProductDTO>> AddProduct(ProductDTO newProduct)
         {
+            if (newProduct == null)
+            {
+                return BadRequest("Object instance not set1");
+            }
 
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized("User ID not found in the token");
+            }
+
+            FluentValidation.Results.ValidationResult result = await validator.ValidateAsync(newProduct);
+            if (!result.IsValid)
+            {
+                return BadRequest("Product data isn't valid");
+            }
             try
             {
-                await _productService.AddProductAsync(productDTO);
-                return Ok(productDTO);
+                return Ok(await productsService.AddProduct(newProduct, int.Parse(userId)));
             }
-            catch (FluentValidation.ValidationException ex)
+            catch (DbUpdateException)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request");
             }
         }
 
-
         [HttpGet]
-        [Authorize(Roles = "Admin,User")]
         public async Task<ActionResult<List<ProductDTO>>> GetAllProducts()
         {
             try
             {
-                var products = await _productService.GetAllProductsAsync();
+                var allProducts = await productsService.GetAllProductsAsync();
+                return Ok(allProducts);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request");
+            }
+        }
+
+        [HttpGet("user")]
+        public async Task<ActionResult<List<ProductDTO>>> getProductsForUser()
+        {
+            try
+            {
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (string.IsNullOrEmpty(userId))
+                {
+                    return Unauthorized("User ID not found in the token");
+                }
+                var products = await productsService.GetProductsForUserAsync(int.Parse(userId));
                 return Ok(products);
             }
-            catch (Exception ex)
+            catch
             {
-                return NotFound(ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request");
             }
 
         }
 
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<ProductDTO>> getProduct(int id)
+        {
+            try
+            {
+                ProductDTO product = await productsService.GetProduct(id);
+                return Ok(product);
+            }
+            catch (DbUpdateException)
+            {
+                return BadRequest("Product not found");
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request");
+            }
 
+        }
 
         [HttpPut]
-        [Authorize(Roles = "Admin")]
-        public async Task<ActionResult<ProductDTO>> UpdateProduct(ProductDTO productDTO)
+        public async Task<ActionResult<ProductDTO>> UpdateProduct(ProductDTO updatedProduct)
         {
+            if (updatedProduct == null)
+            {
+                return BadRequest("Product not found");
+            }
+
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized("User ID not found in the token");
+            }
+
+            FluentValidation.Results.ValidationResult result = await validator.ValidateAsync(updatedProduct);
+            if (!result.IsValid)
+            {
+                return BadRequest("Object not updated");
+            }
+
             try
             {
-                await _productService.UpdateProductAsync(productDTO);
-                return Ok();
+                ProductDTO product = await productsService.UpdateProduct(updatedProduct, int.Parse(userId));
+                return Ok(product);
             }
-            catch (FluentValidation.ValidationException ex)
+            catch (DbUpdateConcurrencyException)
             {
-                return BadRequest(ex.Message);
+                return BadRequest("Not your product");
             }
-            catch (KeyNotFoundException ex)
+            catch (DbUpdateException)
             {
-                return NotFound(ex.Message);
+                return BadRequest("Object not found");
             }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request");
+            }
+
         }
 
-        [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
-        public async Task<ActionResult<List<ProductDTO>>> DeleteProduct(int id)
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult<ProductDTO>> DeleteProduct(int id)
         {
-
             try
             {
-                await _productService.DeleteProductAsync(id);
-                var products = await _productService.GetAllProductsAsync();
-                return Ok(products);
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (string.IsNullOrEmpty(userId))
+                {
+                    return Unauthorized("User ID not found in the token");
+                }
 
+                ProductDTO product = await productsService.DeleteProductById(id, int.Parse(userId));
+                return Ok(product);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return BadRequest("Product not deleted");
+
+            }
+            catch (DbUpdateException)
+            {
+                return BadRequest("Product not found");
+            }
+            catch (ArgumentException)
+            {
+                return BadRequest("Product not yours");
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request");
+            }
+
+        }
+
+        [HttpPut("assign-user/{productId:int}/{userId:int}")]
+        public async Task<ActionResult<UsetDTO>> AssignProductToUser(int productId, int userId)
+        {
+            try
+            {
+                var user = await productsService.AssignProductToUser(productId, userId);
+                return Ok(user);
             }
             catch (Exception ex)
             {
-                {
-                    return NotFound(ex.Message);
-                }
-
+                if (ex.Message == ("Product not found")) return BadRequest("Product not found");
+                if (ex.Message == ("User not found")) return BadRequest("User not found");
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing your request");
             }
         }
 
-        [Authorize]
-        [HttpGet("{id:int}")]
-        [Authorize(Roles = "Admin,User")]
-        public async Task<ActionResult<ProductDTO>> GetProduct(int id)
+        [HttpGet("statistics")]
+        public async Task<ActionResult<Dictionary<string, object>>> GetProductStatistics()
         {
-
-            try
-            {
-                var product = await _productService.GetProductByIdAsync(id)
-;
-                if (product != null)
-                {
-                    return Ok(product);
-                }
-                return NotFound("Product not found");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-
+            var statistics = await productsService.GetProductStatisticsAsync();
+            return Ok(statistics);
         }
 
-        private int? GetCurrentUserId()
+        [HttpGet("popular")]
+        public async Task<ActionResult<List<ProductPopularityDTO>>> GetMostPopularProducts([FromQuery] int topN = 10)
         {
-            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
-            if (int.TryParse(userIdClaim, out var userId))
-            {
-                return userId;
-            }
-
-            return null;
-        }
-
-        [HttpPost("buy")]
-        public async Task<IActionResult> BuyProduct([FromQuery] int productId)
-        {
-            var userId = GetCurrentUserId();
-
-            if (userId == null)
-            {
-                return Unauthorized("User not authenticated.");
-            }
-
-            var result = await _userService.BuyProductAsync(userId.Value, productId);
-
-            if (result == "Product not found.")
-            {
-                return NotFound(result);
-            }
-            if (result == "User already owns this product.")
-            {
-                return BadRequest(result);
-            }
-
-            return Ok(result);
+            var popularProducts = await productsService.GetMostPopularProductsAsync(topN);
+            return Ok(popularProducts);
         }
     }
 }

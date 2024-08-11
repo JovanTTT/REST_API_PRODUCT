@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +8,7 @@ using Product.BusinessLayer.DTO;
 using Product.BusinessLayer.Service;
 using Product.Data;
 using Product.DataLayer.Model;
+using System.ComponentModel.DataAnnotations;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -17,91 +19,49 @@ namespace Product.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        public static User user = new User();
-        private readonly IConfiguration _configuration;
-        private readonly IUserService _userService;
-        private readonly AppDbContext _context;
+        private readonly IUserService usersService;
+        private readonly IAuthService authService;
+        private readonly IValidator<RegisterDTO> validator;
 
-        public AuthController(AppDbContext context, IConfiguration configuration, IUserService userService)
+        public AuthController(IUserService usersService, IAuthService authService, IValidator<RegisterDTO> validator)
         {
-            _context = context;
-            _configuration = configuration;
-            _userService = userService;
+            this.usersService = usersService;
+            this.authService = authService;
+            this.validator = validator;
         }
-
-
-
 
         [HttpPost("register")]
-        public async Task<ActionResult<User>> Register(UsetDTO request)
+        public async Task<ActionResult<UsetDTO>> Register(RegisterDTO registerDTO)
         {
-            // Validate role if needed
-            var validRoles = new List<string> { "Admin", "User" }; // Define valid roles
-            if (!validRoles.Contains(request.Role))
+            try
             {
-                return BadRequest("Invalid role specified!");
+                FluentValidation.Results.ValidationResult result = await validator.ValidateAsync(registerDTO);
+                if (!result.IsValid)
+                {
+                    return BadRequest("Data isn't valid");
+                }
+                return Ok(await usersService.AddUser(registerDTO));
             }
-
-            string passwordHash = BCrypt.Net.BCrypt.HashPassword(request.Password);
-
-            var user = new User
+            catch
             {
-                Username = request.Username,
-                PasswordHash = passwordHash,
-                Role = request.Role // Assign the provided role
-            };
-
-            var createdUser = await _userService.RegisterAsync(user);
-
-            return Ok(createdUser);
+                return BadRequest("Failed to register user");
+            }
         }
 
-
-        [HttpPost("login")]
-        public async Task<ActionResult<string>> Login(LoginDTO request)
+        [HttpPut("login")]
+        public async Task<ActionResult> Login(LoginDTO loginDTO)
         {
-            //var user = await _userService.GetUserByUsernameAsync(request.Username);
-            var user = await _context.Users.SingleOrDefaultAsync(u => u.Username == request.Username);
-
-
-            if (user == null)
+            try
             {
-                return BadRequest("User not found!");
+                var user = await usersService.Login(loginDTO);
+
+                var token = authService.GenerateToken(user);
+                return Ok(token);
             }
-
-            if (!BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
+            catch
             {
-                return BadRequest("Wrong password!");
+                return BadRequest("Username or password are incorrect");
             }
-
-            string token = CreateToken(user);
-
-            return Ok(token);
-        }
-
-        private string CreateToken(User user)
-        {
-            List<Claim> claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, user.Username),
-                new Claim(ClaimTypes.Role, user.Role),
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
-            };
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-                _configuration.GetSection("AppSettings:Token").Value!));
-
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
-
-            var token = new JwtSecurityToken(
-                claims: claims,
-                expires: DateTime.Now.AddDays(1),
-                signingCredentials: creds
-                );
-
-            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
-
-            return jwt;
         }
     }
 }

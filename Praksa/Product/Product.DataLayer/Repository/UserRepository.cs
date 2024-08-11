@@ -34,11 +34,11 @@ namespace Product.DataLayer.Repository
         {
             try
             {
-                return await appDbContext.Users.FirstOrDefaultAsync(e => e.Id == id) ?? throw new Exception(message: "User not found");
+                return await appDbContext.Users.FirstOrDefaultAsync(e => e.Id == id) ?? new User();
             }
             catch
             {
-                throw new DbUpdateException();
+                throw new Exception(message: "User not found");
             }
         }
 
@@ -46,7 +46,7 @@ namespace Product.DataLayer.Repository
         {
             try
             {
-                return await appDbContext.Users.FirstOrDefaultAsync(e => e.Username == name) ?? throw new DbUpdateException();
+                return await appDbContext.Users.FirstOrDefaultAsync(e => e.Name == name) ?? throw new DbUpdateException();
             }
             catch
             {
@@ -68,21 +68,9 @@ namespace Product.DataLayer.Repository
             }
         }
 
-        public async Task<bool> ProductExistsAsync(int productId)
+        public async Task<int> SaveAsync()
         {
-            return await appDbContext.Products.AnyAsync(p => p.Id == productId);
-        }
-
-        public async Task<bool> UserOwnsProductAsync(int userId, int productId)
-        {
-            return await appDbContext.UserProducts
-                .AnyAsync(up => up.UserId == userId && up.ProductId == productId);
-        }
-
-        public async Task AddUserProductAsync(UserProduct userProduct)
-        {
-            appDbContext.UserProducts.Add(userProduct);
-            await appDbContext.SaveChangesAsync();
+            return await appDbContext.SaveChangesAsync();
         }
     }
 }

@@ -7,29 +7,35 @@ namespace Product.DTO
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public double Price { get; set; } = double.MaxValue;
 
-        public string Description { get; set; } = String.Empty;
+        public int OwnerId { get; set; } = int.MaxValue;
 
-        public int Price { get; set; } = 0;
-
-        public ProductDTO() { }
-
-        public ProductDTO(int id, string name, string description, int price)
+        public ProductDTO()
+        {
+        }
+        public ProductDTO(int id, string name, string description, double price, int ownerId)
         {
             Id = id;
             Name = name;
             Description = description;
             Price = price;
+            OwnerId = ownerId;
         }
     }
 
-    public class PersonValidator : AbstractValidator<ProductDTO>
+    public class ProductDTOValidator : AbstractValidator<ProductDTO>
     {
-        public PersonValidator()
+        public ProductDTOValidator()
         {
-            RuleFor(x => x.Id).NotNull();
-            RuleFor(x => x.Name).Length(0, 10);
+            RuleFor(x => x.Name).NotEmpty();
+            RuleFor(x => x.Name).NotNull();
+
             RuleFor(x => x.Description).NotEmpty();
+            RuleFor(x => x.Description).NotNull();
+
+            RuleFor(x => x.Price).NotEmpty();
             RuleFor(x => x.Price).GreaterThan(0);
         }
     }

@@ -15,63 +15,65 @@ namespace Product.BusinessLayer.Service
 {
     public class UserService : IUserService
     {
-        private readonly AppDbContext _context;
+        private readonly IUserRepository usersRepository;
 
-        private readonly IUserRepository _userRepository;
-
-        private readonly IProductRepository _productRepository;
-
-
-        public UserService(AppDbContext context)
+        public UserService(IUserRepository usersRepository)
         {
-            _context = context;
+            this.usersRepository = usersRepository;
         }
 
-        public async Task<User> RegisterAsync(User user)
+        public UsetDTO MapToUserDTO(User user)
         {
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
-            return user;
+            return new UsetDTO(user.Id, user.Name, user.Email, user.Role);
         }
 
-        public async Task<User> GetUserByUsernameAsync(string username)
+        public async Task<UsetDTO> AddUser(RegisterDTO newUser)
         {
-            return await _context.Users.SingleOrDefaultAsync(u => u.Username == username);
-        }
-
-        public async Task<string> BuyProductAsync(int userId, int productId)
-        {
-            var user = await _userRepository.GetUserByIdAsync(userId);
-            if (user == null)
-            {
-                throw new ArgumentException("User not found.", nameof(userId));
-            }
-
-            var product = await _productRepository.GetProductByIdAsync(productId);
-            if (product == null)
-            {
-                throw new ArgumentException("Product not found.", nameof(productId));
-            }
-
-            var userProduct = new UserProduct
-            {
-                UserId = userId,
-                ProductId = productId
-            };
-
             try
             {
-                await _userRepository.AddUserProductAsync(userProduct);
-                string aa = "Ok";
-                return aa;
+                string passHash = BCrypt.Net.BCrypt.HashPassword(newUser.Password);
+                User user = new User(0, newUser.Name, newUser.Email, passHash, newUser.Role);
+                await usersRepository.AddUserAsync(user);
+                return new UsetDTO(user.Id, user.Name, user.Email, user.Role);
             }
-            catch (Exception ex)
+            catch
             {
-                // Log the exception
-                //_logger.LogError(ex, "Error occurred while adding product to user.");
-                string bad = "Bad request";
-                return bad;
+                throw;
             }
+        }
+
+        public async Task<User> Login(LoginDTO login)
+        {
+            try
+            {
+                var user = await usersRepository.GetUserByNameAsync(login.Name);
+                if (user == null) throw new Exception();
+
+                if (!BCrypt.Net.BCrypt.Verify(login.Password, user.PasswordHash)) throw new Exception();
+                return user;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public async Task<User> GetUserById(int id)
+        {
+            try
+            {
+                var user = await usersRepository.GetUserByIdAsync(id);
+                return user;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public async Task<int> SaveAsync()
+        {
+            return await usersRepository.SaveAsync();
         }
     }
 }

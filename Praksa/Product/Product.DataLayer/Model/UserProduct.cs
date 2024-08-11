@@ -13,6 +13,6 @@ namespace Product.DataLayer.Model
         public User User { get; set; }
 
         public int ProductId { get; set; }
-        public ProductModel Product { get; set; }
+        public Product.Model.ProductModel Product { get; set; }
     }
 }

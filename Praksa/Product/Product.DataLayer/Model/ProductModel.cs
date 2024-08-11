@@ -7,18 +7,22 @@ namespace Product.Model
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
-        public int Price { get; set; } = 0;
+        public double Price { get; set; } = double.MaxValue;
 
-        // Remove OwnedId if you don't need it for this relationship
-        // Add a navigation property for the many-to-many relationship
-        public ICollection<UserProduct> UserProducts { get; set; } = new List<UserProduct>();
+        public int OwnerId { get; set; } = int.MaxValue;
 
-        // Convenience property to get User IDs
-        public IEnumerable<int> OwnedUserIds => UserProducts.Select(up => up.UserId);
+        public ICollection<User> Users { get; set; } = new List<User>();
 
-        public ProductModel() { }
+        public ProductModel(int id, string name, string description, double price, int ownerId)
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+            Price = price;
+            OwnerId = ownerId;
+        }
 
-        public ProductModel(int id, string name, string description, int price)
+        public ProductModel(int id, string name, string description, double price)
         {
             Id = id;
             Name = name;

@@ -1944,8 +1944,10 @@
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
           "FluentValidation": "11.9.2",
+          "Microsoft.IdentityModel.Tokens": "7.1.2",
           "Moq": "4.20.70",
           "Product.DataLayer": "1.0.0",
+          "System.IdentityModel.Tokens.Jwt": "7.1.2",
           "xunit": "2.9.0",
           "xunit.assert": "2.9.0",
           "xunit.extensibility.core": "2.9.0"

@@ -1,17 +1,16 @@
-﻿using Product.Model;
+﻿using Product.DataLayer.Model;
+using Product.Model;
 
 namespace Product.Repository
 {
     public interface IProductRepository
     {
-        Task<List<ProductModel>> GetAllProductsAsync();
-
+        Task<List<ProductModel>> GetProductsAsync();
+        Task<ProductModel> AddProductAsync(ProductModel newProduct);
         Task<ProductModel> GetProductByIdAsync(int id);
+        Task<int> SaveAsync();
+        Task<ProductModel> DeleteProductAsync(ProductModel product, int userId);
 
-        Task<List<ProductModel>> AddProductAsync(ProductModel productModel);
-
-        Task<ProductModel> UpdateProductAsync(ProductModel productModel);
-
-        Task<bool> DeleteProductAsync(int id);
+        Task<User> GetUserWithProductsAsync(int userId);
     }
 }

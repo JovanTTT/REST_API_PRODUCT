@@ -58,9 +58,17 @@
               "target": "Package",
               "version": "[11.9.2, )"
             },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[7.1.2, )"
+            },
             "Moq": {
               "target": "Package",
               "version": "[4.20.70, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.1.2, )"
             },
             "xunit": {
               "target": "Package",

@@ -1,68 +1,80 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Product.Data;
+using Product.DataLayer.Model;
 using Product.Model;
 
 namespace Product.Repository
 {
     public class ProductRepository : IProductRepository
     {
-        private readonly AppDbContext _context;
+        private readonly AppDbContext appDbContext;
 
-        public ProductRepository(AppDbContext context)
+        public ProductRepository(AppDbContext appDbContext)
         {
-            _context = context;
+            this.appDbContext = appDbContext;
         }
 
-        public async Task<List<ProductModel>> GetAllProductsAsync()
+        public async Task<List<ProductModel>> GetProductsAsync()
         {
-            return await _context.Products.ToListAsync();
+            try
+            {
+                return await appDbContext.Products.Include(p => p.Users).ToListAsync();
+            }
+            catch
+            {
+                throw new Exception();
+            }
         }
 
+        public async Task<ProductModel> AddProductAsync(ProductModel newProduct)
+        {
+            try
+            {
+                var product = appDbContext.Products.Add(newProduct);
+                await appDbContext.SaveChangesAsync();
+                return product.Entity;
+            }
+            catch
+            {
+                throw new DbUpdateException();
+            }
+        }
         public async Task<ProductModel> GetProductByIdAsync(int id)
         {
-            var product = await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
-            return product != null ? new ProductModel
+            try
             {
-                Id = product.Id,
-                Name = product.Name,
-                Price = product.Price,
-                Description = product.Description
-            } : null;
-        }
-
-        public async Task<List<ProductModel>> AddProductAsync(ProductModel productModel)
-        {
-            _context.Products.Add(productModel);
-            await _context.SaveChangesAsync();
-            return await _context.Products.ToListAsync();
-        }
-
-        public async Task<ProductModel> UpdateProductAsync(ProductModel productModel)
-        {
-            var local = _context.Set<ProductModel>()
-                                .Local
-                                .FirstOrDefault(entry => entry.Id.Equals(productModel.Id));
-
-            if (local != null)
-            {
-                _context.Entry(local).State = EntityState.Detached;
+                return await appDbContext.Products.FirstOrDefaultAsync(e => e.Id == id) ?? throw new Exception(message: "Product not found");
             }
-
-            _context.Entry(productModel).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-            return productModel;
+            catch
+            {
+                throw new Exception(message: "Product not found");
+            }
         }
 
-        public async Task<bool> DeleteProductAsync(int id)
+        public async Task<User> GetUserWithProductsAsync(int userId)
         {
-            var product = await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
-            if (product != null)
+            return await appDbContext.Users
+                .Include(u => u.Products) // Eager loading of products
+                .FirstOrDefaultAsync(u => u.Id == userId) ?? throw new DbUpdateException();
+        }
+
+        public async Task<int> SaveAsync()
+        {
+            return await appDbContext.SaveChangesAsync();
+        }
+
+        public async Task<ProductModel> DeleteProductAsync(ProductModel product, int userId)
+        {
+            try
             {
-                _context.Products.Remove(product);
-                await _context.SaveChangesAsync();
-                return true;
+                appDbContext.Products.Remove(product);
+                await appDbContext.SaveChangesAsync();
+                return product;
             }
-            return false;
+            catch
+            {
+                throw new DbUpdateConcurrencyException();
+            }
         }
     }
 }

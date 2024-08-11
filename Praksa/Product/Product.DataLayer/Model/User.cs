@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Product.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,21 @@ namespace Product.DataLayer.Model
     public class User
     {
         public int Id { get; set; }
-        public string Username { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
         public string PasswordHash { get; set; } = string.Empty;
         public string Role { get; set; } = string.Empty;
 
-        public ICollection<UserProduct> UserProducts { get; set; } = new List<UserProduct>();
+        public ICollection<ProductModel> Products { get; set; } = new List<ProductModel>();
+
+        public User() { }
+        public User(int id, string name, string email, string passHash, string role)
+        {
+            Id = id;
+            Name = name;
+            Email = email;
+            PasswordHash = passHash;
+            Role = role;
+        }
     }
 }

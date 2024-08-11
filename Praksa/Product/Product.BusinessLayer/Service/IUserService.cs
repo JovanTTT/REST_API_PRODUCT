@@ -1,4 +1,5 @@
-﻿using Product.DataLayer.Model;
+﻿using Product.BusinessLayer.DTO;
+using Product.DataLayer.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,14 @@ namespace Product.BusinessLayer.Service
 {
     public interface IUserService
     {
-        Task<User> RegisterAsync(User user);
-        Task<User> GetUserByUsernameAsync(string username);
+        Task<UsetDTO> AddUser(RegisterDTO newUser);
 
-        Task<string> BuyProductAsync(int userId, int productId);
+        Task<User> Login(LoginDTO login);
+
+        Task<User> GetUserById(int id);
+
+        UsetDTO MapToUserDTO(User user);
+
+        Task<int> SaveAsync();
     }
 }
